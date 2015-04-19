@@ -24,13 +24,13 @@ Template.header.helpers({
   userCount: function(){
 
       if ( Session.get("userCount") === 1){
-        return "is " + Session.get("userCount") + " knucklehead";
+        return "1 knucklehead";
       } else {
-          return "are " + Session.get("userCount") + " knuckleheads";
+          return Session.get("userCount") + " knuckleheads";
         }
 
   },
-  name: function(){
+  roomName: function(){
     return Session.get("chatName");
   }
 });
@@ -62,7 +62,7 @@ Template.insert.events({
     Meteor.call("insertPost", name, text, function(error, result){
       if (!error){
         $("#msgBox").val("");
-        console.log(result);
+        //console.log(result);
       } else {
           console.log('Womp womp - try again.');
         }

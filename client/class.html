@@ -1,5 +1,7 @@
 <head>
   <title>Work</title>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:400,400italic,500|Roboto+Condensed' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -11,8 +13,7 @@
 
 <template name="header">
   {{> loginButtons}}
-  <h4>{{name}}</h4>
-  <p>There {{userCount}} in this room.</p>
+  <h4>#{{roomName}} <span style="color:#AAAAAA; font-style:italic;">[{{userCount}}]</span></h4>
 </template>
 
 <template name="messages">
@@ -32,9 +33,9 @@
 
 <template name="insert">
   {{#if signedIn}}
-    <p><strong>Reply:</strong></p>
+    <h4>Reply:</h4>
     <form>
-      <input type="text" id="msgBox" placeholder="message">
+      <input type="textarea" id="msgBox" placeholder="message">
     </form>
   {{else}}
     <p>Please sign in to chat</p>
