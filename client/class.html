@@ -1,0 +1,42 @@
+<head>
+  <title>Work</title>
+</head>
+
+<body>
+  {{> header}}
+  {{> messages}}
+  <hr>
+  {{> insert}}
+</body>
+
+<template name="header">
+  {{> loginButtons}}
+  <h4>{{name}}</h4>
+  <p>There {{userCount}} in this room.</p>
+</template>
+
+<template name="messages">
+  <ul>
+    {{#each msg}}
+      {{> message}}
+    {{/each}}
+  </ul>
+</template>
+
+<template name="message">
+  <li>
+    <strong>{{name}}</strong>: {{message}}
+    <span style="color:#AAAAAA; font-style:italic;">[{{date}}]</span>
+  </li>
+</template>
+
+<template name="insert">
+  {{#if signedIn}}
+    <p><strong>Reply:</strong></p>
+    <form>
+      <input type="text" id="msgBox" placeholder="message">
+    </form>
+  {{else}}
+    <p>Please sign in to chat</p>
+  {{/if}}
+</template>
